@@ -1,0 +1,9 @@
+{
+	"name": "isa-l_crypto_d",
+	"authors": [
+		"Ori Peleg"
+	],
+	"description": "Bindings to Intel's ISA-L_crypto library",
+	"copyright": "Copyright © 2018, WekaIO Ltd.",
+	"license": "BSD 3-Clause"
+}
