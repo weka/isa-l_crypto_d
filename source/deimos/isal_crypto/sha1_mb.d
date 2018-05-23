@@ -125,7 +125,7 @@ struct SHA1_JOB
 {
     ubyte* buffer; //!< pointer to data buffer for this job
     uint len; //!< length of buffer for this job in blocks.
-    uint[DECLARE_ALIGNED] result_digest;
+    align(64) uint[SHA1_DIGEST_NWORDS] result_digest;
     JOB_STS status; //!< output job status
     void* user_data; //!< pointer for user's job-related data
 }
@@ -444,7 +444,7 @@ void sha1_mb_mgr_init_sse (SHA1_MB_JOB_MGR* state);
 SHA1_JOB* sha1_mb_mgr_submit_sse (SHA1_MB_JOB_MGR* state, SHA1_JOB* job);
 SHA1_JOB* sha1_mb_mgr_flush_sse (SHA1_MB_JOB_MGR* state);
 
-enum sha1_mb_mgr_init_avx = sha1_mb_mgr_init_sse;
+alias sha1_mb_mgr_init_avx = sha1_mb_mgr_init_sse;
 SHA1_JOB* sha1_mb_mgr_submit_avx (SHA1_MB_JOB_MGR* state, SHA1_JOB* job);
 SHA1_JOB* sha1_mb_mgr_flush_avx (SHA1_MB_JOB_MGR* state);
 

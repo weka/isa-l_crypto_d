@@ -75,6 +75,7 @@ enum MURMUR3_x64_128_DIGEST_WORDS = 4;
 */
 struct mh_sha1_murmur3_x64_128_ctx
 {
+    import deimos.isal_crypto.mh_sha1: SHA1_DIGEST_WORDS; // orip: manual fix
     uint[SHA1_DIGEST_WORDS] mh_sha1_digest; //!< the digest of multi-hash SHA1
     uint[MURMUR3_x64_128_DIGEST_WORDS] murmur3_x64_128_digest; //!< the digest of murmur3_x64_128
 

@@ -37,8 +37,9 @@ extern (C):
  *
  */
 
-alias _byteswap_uint64 = OSSwapInt64;
-alias _byteswap_ulong = OSSwapInt32;
+// orip: unneeded, unavailable in d
+//alias _byteswap_uint64 = OSSwapInt64;
+//alias _byteswap_ulong = OSSwapInt32;
 
 /**
  *  @enum JOB_STS

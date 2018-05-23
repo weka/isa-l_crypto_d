@@ -128,7 +128,7 @@ struct SHA512_JOB
 {
     ubyte* buffer; //!< pointer to data buffer for this job
     ulong len; //!< length of buffer for this job in blocks.
-    ulong[DECLARE_ALIGNED] result_digest;
+    align(64) ulong[SHA512_DIGEST_NWORDS] result_digest;
     JOB_STS status; //!< output job status
     void* user_data; //!< pointer for user's job-related data
 }
@@ -411,7 +411,7 @@ void sha512_mb_mgr_init_sse (SHA512_MB_JOB_MGR* state);
 SHA512_JOB* sha512_mb_mgr_submit_sse (SHA512_MB_JOB_MGR* state, SHA512_JOB* job);
 SHA512_JOB* sha512_mb_mgr_flush_sse (SHA512_MB_JOB_MGR* state);
 
-enum sha512_mb_mgr_init_avx = sha512_mb_mgr_init_sse;
+alias sha512_mb_mgr_init_avx = sha512_mb_mgr_init_sse;
 SHA512_JOB* sha512_mb_mgr_submit_avx (SHA512_MB_JOB_MGR* state, SHA512_JOB* job);
 SHA512_JOB* sha512_mb_mgr_flush_avx (SHA512_MB_JOB_MGR* state);
 
