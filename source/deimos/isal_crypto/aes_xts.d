@@ -185,7 +185,7 @@ void XTS_AES_256_enc (
     ubyte* TW_initial,
     ulong N,
     const(ubyte)* pt,
-    ubyte* ct);
+    ubyte* ct) nothrow @nogc;
 
 /** @brief XTS-AES-256 Encryption with pre-expanded keys
  * @requires AES-NI
@@ -221,7 +221,7 @@ void XTS_AES_256_dec (
     ubyte* TW_initial,
     ulong N,
     const(ubyte)* ct,
-    ubyte* pt);
+    ubyte* pt) nothrow @nogc;
 
 /** @brief XTS-AES-256 Decryption with pre-expanded keys
  * @requires AES-NI
