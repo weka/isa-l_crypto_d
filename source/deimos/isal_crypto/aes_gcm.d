@@ -104,7 +104,7 @@ enum GCM_KEY_SETS = 15; /*exp key + 14 exp round keys*/
  */
 struct gcm_data
 {
-    ubyte[240] expanded_keys;
+    ubyte[GCM_ENC_KEY_LEN * GCM_KEY_SETS] expanded_keys;
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_1; // store HashKey <<1 mod poly here
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_2; // store HashKey^2 <<1 mod poly here
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_3; // store HashKey^3 <<1 mod poly here
@@ -137,10 +137,9 @@ struct gcm_data
  * gcm_key_data hold internal key information used by gcm128, gcm192 and gcm256.
  */
 
-/* WIN32 */
-struct gcm_key_data
+align(16) struct gcm_key_data
 {
-    ubyte[240] expanded_keys;
+    ubyte[GCM_ENC_KEY_LEN * GCM_KEY_SETS] expanded_keys;
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_1; // store HashKey <<1 mod poly here
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_2; // store HashKey^2 <<1 mod poly here
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_3; // store HashKey^3 <<1 mod poly here
