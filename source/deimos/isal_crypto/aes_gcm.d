@@ -76,6 +76,8 @@
 
 module deimos.isal_crypto.aes_gcm;
 
+nothrow @nogc:
+
 extern (C):
 
 /* Authenticated Tag Length in bytes. Valid values are 16 (most likely), 12 or 8. */
