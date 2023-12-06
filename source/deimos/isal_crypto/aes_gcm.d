@@ -158,6 +158,7 @@ align(16) struct gcm_key_data
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_6_k; // store XOR of High 64 bits and Low 64 bits of  HashKey^6 <<1 mod poly here (for Karatsuba purposes)
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_7_k; // store XOR of High 64 bits and Low 64 bits of  HashKey^7 <<1 mod poly here (for Karatsuba purposes)
     ubyte[GCM_ENC_KEY_LEN] shifted_hkey_8_k; // store XOR of High 64 bits and Low 64 bits of  HashKey^8 <<1 mod poly here (for Karatsuba purposes)
+    ubyte[GCM_ENC_KEY_LEN * (48-16)] shifted_hkey_n_k; // Note, this assumes ISA-L built without GCM_BIG_DATA (use 128 instead of 48 for GCM_BIG_DATA)
 }
 
 /**
